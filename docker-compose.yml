@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  server:
+    build: .
+    container_name: "server"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:13
+    restart: always
+    ports:
+      - "5432:5432"
+    container_name: "ocenaservice"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ocena

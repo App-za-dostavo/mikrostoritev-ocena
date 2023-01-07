@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>si.fri.rso.ocena</groupId>
+  <artifactId>ocena</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <modules>
+    <module>api</module>
+    <module>models</module>
+    <module>services</module>
+    <module>lib</module>
+  </modules>
+
+  <name>Ocena</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <kumuluzee.version>4.1.0</kumuluzee.version>
+    <kumuluzee-rest.version>1.5.1</kumuluzee-rest.version>
+    <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
+    <kumuluzee-config-mp.version>2.0.0</kumuluzee-config-mp.version>
+    <postgresql.version>42.5.0</postgresql.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-bom</artifactId>
+        <version>${kumuluzee.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.rest</groupId>
+        <artifactId>kumuluzee-rest-core</artifactId>
+        <version>${kumuluzee-rest.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.openapi</groupId>
+        <artifactId>kumuluzee-openapi-mp</artifactId>
+        <version>${kumuluzee-openapi-mp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.openapi</groupId>
+        <artifactId>kumuluzee-openapi-mp-ui</artifactId>
+        <version>${kumuluzee-openapi-mp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.config</groupId>
+        <artifactId>kumuluzee-config-mp</artifactId>
+        <version>${kumuluzee-config-mp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>si.fri.rso.ocena</groupId>
+        <artifactId>api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>si.fri.rso.ocena</groupId>
+        <artifactId>models</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>si.fri.rso.ocena</groupId>
+        <artifactId>services</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>si.fri.rso.ocena</groupId>
+        <artifactId>lib</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>
