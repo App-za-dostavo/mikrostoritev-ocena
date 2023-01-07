@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocena-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ocena
+  template:
+    metadata:
+      labels:
+        app: ocena
+    spec:
+      containers:
+        - image: kimberly3388/ocena:2023-01-07-19-44-12
+          name: ocena
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgresql://kandula.db.elephantsql.com:5432/hjqklfdr
+            - name: KUMULUZEE_DATASOURCES0_USERNAME
+              value: hjqklfdr
+            - name: KUMULUZEE_DATASOURCES0_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-password
+                  key: KUMULUZEE_DATASOURCES0_PASSWORD
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocena
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: ocena
