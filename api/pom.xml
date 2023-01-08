@@ -39,6 +39,11 @@
             <groupId>si.fri.rso.ocena</groupId>
             <artifactId>services</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.cors</groupId>
+            <artifactId>kumuluzee-cors</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

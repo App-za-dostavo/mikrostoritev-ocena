@@ -83,7 +83,7 @@ public class RatingBean {
         try {
             beginTx();
             updatedRatingEntity.setId(r.getId());
-            updatedRatingEntity.setStars((updatedRatingEntity.getStars()* r.getRatingsCount()+r.getStars())/(r.getRatingsCount()+1));
+            updatedRatingEntity.setStars((r.getStars()*r.getRatingsCount()+updatedRatingEntity.getStars())/(r.getRatingsCount()+1));
             updatedRatingEntity.setRatingsCount(r.getRatingsCount()+1);
             updatedRatingEntity = em.merge(updatedRatingEntity);
             commitTx();

@@ -18,7 +18,7 @@ public class Rating {
         return deliveryPerson;
     }
 
-    public void setDeliveryPerson(Integer client) {
+    public void setDeliveryPerson(Integer deliveryPerson) {
         this.deliveryPerson = deliveryPerson;
     }
 
@@ -34,7 +34,7 @@ public class Rating {
         return ratingsCount;
     }
 
-    public void setRatingsCount(Integer stars) {
+    public void setRatingsCount(Integer ratingsCount) {
         this.ratingsCount = ratingsCount;
     }
 

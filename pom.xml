@@ -25,6 +25,7 @@
     <kumuluzee-rest.version>1.5.1</kumuluzee-rest.version>
     <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
     <kumuluzee-config-mp.version>2.0.0</kumuluzee-config-mp.version>
+    <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
     <postgresql.version>42.5.0</postgresql.version>
   </properties>
 
@@ -60,6 +61,12 @@
         <groupId>com.kumuluz.ee.openapi</groupId>
         <artifactId>kumuluzee-openapi-mp-ui</artifactId>
         <version>${kumuluzee-openapi-mp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.cors</groupId>
+        <artifactId>kumuluzee-cors</artifactId>
+        <version>${kumuluzee-cors.version}</version>
       </dependency>
 
       <dependency>

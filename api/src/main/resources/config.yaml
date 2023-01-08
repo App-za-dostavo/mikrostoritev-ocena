@@ -7,6 +7,9 @@ kumuluzee:
     base-url: http://localhost:8080
     http:
       port: 8080
+  cors-filter:
+    servlet:
+      allow-origin: "*"
   datasources:
     - jndi-name: jdbc/ocenaDS
       connection-url: jdbc:postgresql://ocenaservice:5432/ocena

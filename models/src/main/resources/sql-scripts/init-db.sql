@@ -1,1 +1,10 @@
 INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (1, 4.8, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (2, 5.0, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (3, 4.0, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (4, 4.2, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (5, 3.8, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (6, 3.0, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (7, 4.8, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (8, 4.9, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (9, 2.8, 2);
+INSERT INTO ocena (deliveryPerson, stars, ratingsCount) VALUES (10, 3.5, 2);
