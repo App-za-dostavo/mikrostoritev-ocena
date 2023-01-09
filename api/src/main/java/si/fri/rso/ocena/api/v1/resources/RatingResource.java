@@ -1,6 +1,10 @@
 package si.fri.rso.ocena.api.v1.resources;
 
+import com.kumuluz.ee.configuration.cdi.ConfigBundle;
+import com.kumuluz.ee.configuration.cdi.ConfigValue;
 import com.kumuluz.ee.cors.annotations.CrossOrigin;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
@@ -23,6 +27,7 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
 
+@ConfigBundle("external-api")
 @ApplicationScoped
 @Path("/ocena")
 @Produces(MediaType.APPLICATION_JSON)
@@ -37,6 +42,28 @@ public class RatingResource {
 
     @Context
     protected UriInfo uriInfo;
+
+    @ConfigValue("mailgun.private-key")
+    private String mailgunPrivateKey;
+
+    @ConfigValue("mailgun.domain")
+    private String mailgunDomain;
+
+    public String getMailgunPrivateKey() {
+        return this.mailgunPrivateKey;
+    }
+
+    public void setMailgunPrivateKey(String mailgunPrivateKey) {
+        this.mailgunPrivateKey = mailgunPrivateKey;
+    }
+
+    public String getMailgunDomain() {
+        return this.mailgunDomain;
+    }
+
+    public void setMailgunDomain(String mailgunDomain) {
+        this.mailgunDomain = mailgunDomain;
+    }
 
     @Operation(description = "Get all ratings metadata.", summary = "Get all metadata")
     @APIResponses({
@@ -142,8 +169,28 @@ public class RatingResource {
         boolean deleted = ratingBean.deleteRating(id);
 
         if (deleted) {
-            return  Response.status(Response.Status.OK).build();
+            return Response.status(Response.Status.OK).build();
         } else return Response.status(Response.Status.NOT_FOUND).build();
     }
-}
 
+    @Operation(description = "Send ratings report to deliverers.", summary = "Send newsletter")
+    @APIResponses({
+            @APIResponse(responseCode = "201",
+                    description = "Newsletter sent."
+            ),
+            @APIResponse(responseCode = "405", description = "Sending error.")
+    })
+    @POST
+    @Path("/sendratings")
+    public Response sendSimpleMessage() throws UnirestException {
+
+        Unirest.post("https://api.mailgun.net/v3/" + "sandbox4ab1614709c744049f5ba3f406277b62.mailgun.org" + "/messages")
+                .basicAuth("api", "ffdd6dd8bb04581e5aafdad64587ebd3-4c2b2223-74e2169a")
+                .queryString("from", "ratings@abc.com")
+                .queryString("to", "anny8833@gmail.com")
+                .queryString("subject", "Monthly rating report")
+                .queryString("text", "Hello! This is your monthly rating report for your past deliveries.")
+                .asJson();
+        return Response.status(Response.Status.OK).build();
+    }
+}

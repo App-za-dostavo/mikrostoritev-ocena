@@ -16,3 +16,7 @@ kumuluzee:
       username: postgres
       password: postgres
       max-pool-size: 20
+  external-api:
+    mailgun:
+      domain: sandbox4ab1614709c744049f5ba3f406277b62.mailgun.org
+      private-key: ffdd6dd8bb04581e5aafdad64587ebd3-4c2b2223-74e2169a
