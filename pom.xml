@@ -28,6 +28,7 @@
     <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
     <postgresql.version>42.5.0</postgresql.version>
     <kumuluzee-fault-tolerance.version>2.1.1</kumuluzee-fault-tolerance.version>
+    <kumuluzee-graphql.version>1.1.0</kumuluzee-graphql.version>
   </properties>
 
   <dependencyManagement>
@@ -74,6 +75,18 @@
         <groupId>com.kumuluz.ee.config</groupId>
         <artifactId>kumuluzee-config-mp</artifactId>
         <version>${kumuluzee-config-mp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.graphql</groupId>
+        <artifactId>kumuluzee-graphql</artifactId>
+        <version>${kumuluzee-graphql.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.graphql</groupId>
+        <artifactId>kumuluzee-graphql-ui</artifactId>
+        <version>${kumuluzee-graphql.version}</version>
       </dependency>
 
       <dependency>
