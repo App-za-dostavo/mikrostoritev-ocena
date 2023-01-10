@@ -27,6 +27,7 @@
     <kumuluzee-config-mp.version>2.0.0</kumuluzee-config-mp.version>
     <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
     <postgresql.version>42.5.0</postgresql.version>
+    <kumuluzee-fault-tolerance.version>2.1.1</kumuluzee-fault-tolerance.version>
   </properties>
 
   <dependencyManagement>
@@ -103,6 +104,12 @@
         <groupId>com.mashape.unirest</groupId>
         <artifactId>unirest-java</artifactId>
         <version>1.4.9</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.fault.tolerance</groupId>
+        <artifactId>kumuluzee-fault-tolerance-smallrye</artifactId>
+        <version>${kumuluzee-fault-tolerance.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

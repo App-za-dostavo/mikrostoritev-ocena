@@ -34,6 +34,17 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.fault.tolerance</groupId>
+            <artifactId>kumuluzee-fault-tolerance-smallrye</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>si.fri.rso.ocena</groupId>
             <artifactId>models</artifactId>
         </dependency>
