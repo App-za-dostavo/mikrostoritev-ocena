@@ -13,7 +13,7 @@ spec:
         app: ocena
     spec:
       containers:
-        - image: kimberly3388/ocena:2023-01-07-19-44-12
+        - image: tomssojer/ocena:2023-01-10-10-47-30
           name: ocena
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
